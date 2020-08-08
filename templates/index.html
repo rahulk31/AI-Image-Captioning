@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='geek.ico') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,900;1,400&display=swap" rel="stylesheet">
+  <title>AI Image Captioning</title>
+</head>
+<body>
+<div class="container">
+  <h1 class="l-heading">AI Image Captioning Model</h1>
+
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <input class="icontainer file-input" type="file" name="userfile" id="Your image">
+    <input type="submit" class="btn icontainer">
+  </form>
+  
+
+  {% if your_result  %}
+  <img src="{{ your_result['image']}}" alt="Your image" class="img-section icontainer">
+  <h4 class="m-heading"><span>Generated Caption :   </span><i> {{ your_result['caption'] }}</i></h4>
+
+  {% endif %}
+
+  <footer>
+    <p>&copy; Developed By Rahul | 2020 </p>
+  </footer>
+</div>
+</body>
+</html>
